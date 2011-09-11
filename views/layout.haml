@@ -1,0 +1,44 @@
+%html
+  %head
+    %title Wetterstation
+    %link{:rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/assets/css/bootstrap-1.2.0.min.css"}
+    %link{:rel => "stylesheet", :href => "/style.css"}
+
+  %body
+    %div.container
+      %div.topbar-wrapper
+        %div.topbar
+          %div.topbar-inner
+            %div.container
+              %h3
+                %a{:href => "/"}
+                  %img{:src => "/images/logo.png", :alt => "Zipfelmaus"}
+                  Wetterstation
+              %ul.nav
+                -if @timeframe == "1d"
+                  %li.active
+                    %a{:href => "/1d"} Letzte 24 Stunden
+                - else
+                  %li
+                    %a{:href => "/1d"} Letzte 24 Stunden
+                -if @timeframe == "1w"
+                  %li.active
+                    %a{:href => "/1w"} Letzte Woche
+                - else
+                  %li
+                    %a{:href => "/1w"}Letzte Woche
+
+                -if @timeframe == "1m"
+                  %li.active
+                    %a{:href => "/1m"} Letzer Monat
+                - else
+                  %li
+                    %a{:href => "/1m"} Letzer Monat
+
+                -if @timeframe == "1y"
+                  %li.active
+                    %a{:href => "/1y"} Letzes Jahr
+                - else
+                  %li
+                    %a{:href => "/1y"} Letzes Jahr
+      = yield
